@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
 import PlanMarketHeader from "./PlanMarketHeader.components";
 import PlanMarketContent from "./PlanMarketContent.components";
@@ -17,7 +17,7 @@ function PlanMarket() {
       try {
         setTitle("Plan Market");
         setLoading(true);
-        const response = await axios.get("https://myplanit.link/plans");
+        const response = await axios.get("/plans");
         const data = response.data;
         setPlans([...data.Routine, ...data.Growth]);
       } catch (e) {

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "store/axios";
 import { Checkbox } from "antd";
 import styled from "styled-components";
 
@@ -17,7 +17,7 @@ function MyTodo({
     try {
       await axios
         .post(
-          `https://myplanit.link/todos/my/${todo["id"]}/check`,
+          `/todos/my/${todo["id"]}/check`,
           {},
           {
             headers: {

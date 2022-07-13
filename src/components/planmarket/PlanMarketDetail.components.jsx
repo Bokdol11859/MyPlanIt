@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import styled from "styled-components";
 
 import Button from "@mui/material/Button";
@@ -17,7 +17,7 @@ function PlanMarketDetail() {
   const [open, setOpen] = useState(false);
   const fetchPlan = async () => {
     try {
-      const response = await axios.get("https://myplanit.link/plans/" + id);
+      const response = await axios.get("/plans/" + id);
       setPlan(response.data);
     } catch (e) {
       console.log(e);
@@ -37,7 +37,7 @@ function PlanMarketDetail() {
     axios
       .all([
         axios.post(
-          "https://myplanit.link/plans/" + id + "/buy",
+          "/plans/" + id + "/buy",
           {},
           {
             headers: {
@@ -47,7 +47,7 @@ function PlanMarketDetail() {
           }
         ),
         axios.post(
-          "https://myplanit.link/myplans/" + id + "/register",
+          "/myplans/" + id + "/register",
           {},
           {
             headers: {

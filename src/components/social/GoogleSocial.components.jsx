@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import LoadingScreen from "../globalcomponents/Loading.components";
 
 function GoogleSocial() {
@@ -9,7 +9,7 @@ function GoogleSocial() {
     const code = window.location.href.split("=")[1].slice(0, -6);
     console.log(code);
     axios
-      .get(`https://myplanit.link/auth/google?code=${code}`)
+      .get(`/auth/google?code=${code}`)
       .then((response) => {
         const data = response.data;
         const status = response.status;

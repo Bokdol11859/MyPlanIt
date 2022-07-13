@@ -11,7 +11,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import axios from "axios";
+import axios from "store/axios";
 import { render } from "@testing-library/react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +29,7 @@ function ViewTemplate(props) {
     if (reason && reason == "backdropClick") return;
 
     axios
-      .post("https://myplanit.link/myplans/" + id + "challenge", {
+      .post("/myplans/" + id + "challenge", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${accessToken}`,
@@ -51,7 +51,7 @@ function ViewTemplate(props) {
         setError(null);
         setUsers(null);
         setLoading(true);
-        const response = await axios.get("https://myplanit.link/plans/" + id);
+        const response = await axios.get("/plans/" + id);
         setUsers(response.data);
       } catch (e) {
         setError(e);

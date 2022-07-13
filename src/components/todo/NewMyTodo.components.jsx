@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import { Input } from "antd";
 import Sheet from "react-modal-sheet";
 import { Button } from "antd";
@@ -26,7 +26,7 @@ function NewMyTodo({ selectedDate, updateMy, setUpdateMy }) {
     if (todo !== "") {
       axios
         .post(
-          `https://myplanit.link/todos/my/${selectedDate.getFullYear()}-${(
+          `/todos/my/${selectedDate.getFullYear()}-${(
             "0" +
             (selectedDate.getMonth() + 1)
           ).slice(-2)}-${("0" + selectedDate.getDate()).slice(-2)}`,

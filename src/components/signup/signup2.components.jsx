@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import "./signup2.components.css";
 import { Input } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ function Signup2({ email, password, name, emailAgree, snsAgree }) {
   function attemptSignup() {
     axios
       .post(
-        `https://myplanit.link/signup`,
+        `/signup`,
         {
           email: email,
           password: password,

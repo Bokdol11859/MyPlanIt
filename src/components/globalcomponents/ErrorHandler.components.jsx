@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+import axios from "store/axios"
 
 function ErrorHandler({ error }) {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ function ErrorHandler({ error }) {
   useEffect(() => {
     if (error.response.status === 401) {
       axios
-        .post("https://myplanit.link/api/token/refresh", {
+        .post("/api/token/refresh", {
           refresh: localStorage.getItem("refresh"),
         })
         .then((res) => {

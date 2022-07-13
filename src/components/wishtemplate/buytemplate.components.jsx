@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import React, { useState, useEffect, Component } from "react";
 import { NavLink, Route } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import { v4 as uuidv4 } from "uuid";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Loading } from "@nextui-org/react";
@@ -26,7 +26,7 @@ function BuyTemplate() {
         setUsers(null);
         setLoading(true);
 
-        const response = await axios.get("https://myplanit.link/myplans/buy", {
+        const response = await axios.get("/myplans/buy", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",

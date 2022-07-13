@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
 import * as Styled from "./Proposal.style";
 import LoadingScreen from "../globalcomponents/Loading.components";
@@ -28,7 +28,7 @@ function Proposal() {
         setError(null);
         setPlans(null);
         setLoading(true);
-        const response = await axios.get("https://myplanit.link/proposal", {
+        const response = await axios.get("/proposal", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${accessToken}`,
@@ -50,7 +50,7 @@ function Proposal() {
   function SendPlan() {
     axios
       .post(
-        "https://myplanit.link/proposal",
+        "/proposal",
         {
           proposal: inputText,
         },

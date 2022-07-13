@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import * as Styled from "./LoginPage.style";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import constants from "../../constants";
+
+import axios from "store/axios";
 
 function RootPage() {
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ function RootPage() {
     const refresh = localStorage.getItem("refresh");
     if (refresh) {
       axios
-        .post("https://myplanit.link/api/token/refresh", {
+        .post("/api/token/refresh", {
           refresh,
         })
         .then((res) => {

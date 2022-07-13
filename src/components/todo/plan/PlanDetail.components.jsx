@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import styled from "styled-components";
 import PlanTodo from "../PlanTodo.components";
@@ -29,7 +29,7 @@ function PlanDetail() {
   const fetchTodos = () => {
     axios
       .get(
-        `https://myplanit.link/todos/plan/detail/${current.toLowerCase()}/${id}`,
+        `/todos/plan/detail/${current.toLowerCase()}/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
 import MyPlanHeader from "./MyPlanHeader.components";
 import MyPlanContent from "./MyPlanContent.components";
@@ -23,7 +23,7 @@ function MyPlan() {
       try {
         setTitle("My Plan");
         const response = await axios.get(
-          "https://myplanit.link/myplans/registered",
+          "/myplans/registered",
           {
             withCredentials: true,
             headers: {
@@ -49,7 +49,7 @@ function MyPlan() {
 
     const fetchBuyPlans = async () => {
       try {
-        const response = await axios.get("https://myplanit.link/myplans/buy", {
+        const response = await axios.get("/myplans/buy", {
           withCredentials: true,
           headers: {
             "Content-Type": "application/json",
