@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import { Link, useNavigate } from "react-router-dom";
 
 function Admin() {
@@ -11,7 +11,7 @@ function Admin() {
   function attemptLogin() {
     axios
       .post(
-        "https://myplanit.link/manager",
+        "/manager",
         {
           username: pw,
           password: pw,

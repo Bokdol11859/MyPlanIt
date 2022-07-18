@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Checkbox } from "antd";
-import axios from "axios";
+import axios from "store/axios";
 import constants from "../../constants";
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ function PlanTodo({ todo, update, setUpdate, edit, delay, setDelay }) {
   const checkTodo = async (todo) => {
     axios
       .post(
-        `https://myplanit.link/todos/plan/${todo["plan_id"]}/${todo["id"]}/check`,
+        `/todos/plan/${todo["plan_id"]}/${todo["id"]}/check`,
         {},
         {
           headers: {

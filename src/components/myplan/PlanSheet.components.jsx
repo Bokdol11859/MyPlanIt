@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sheet from "react-modal-sheet";
-import axios from "axios";
+import axios from "store/axios";
 import styled from "styled-components";
 import MyPlanModal from "./MyPlanModal.components";
 
@@ -25,7 +25,7 @@ function PlanSheet({
   const registerPlan = () => {
     axios
       .post(
-        `https://myplanit.link/myplans/${planId}/register`,
+        `/myplans/${planId}/register`,
         {},
         {
           headers: {
@@ -49,7 +49,7 @@ function PlanSheet({
   const deletePlan = () => {
     axios
       .post(
-        `https://myplanit.link/myplans/${planId}/delete`,
+        `/myplans/${planId}/delete`,
         {
           plan_id: planId,
         },

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "store/axios";
 import constants from "../../constants";
 import * as Styled from "./EditFooter.style";
 
@@ -15,7 +15,7 @@ function EditFooter({
     for (let i = 0; i < delay.length; i++) {
       axios
         .post(
-          `https://myplanit.link/todos/plan/delay/${delay[i]}`,
+          `/todos/plan/delay/${delay[i]}`,
           {},
           {
             headers: {
@@ -34,7 +34,7 @@ function EditFooter({
     for (let i = 0; i < delay.length; i++) {
       axios
         .post(
-          `https://myplanit.link/todos/my/${delay[i]}/delay`,
+          `/todos/my/${delay[i]}/delay`,
           {},
           {
             headers: {
@@ -53,7 +53,7 @@ function EditFooter({
     for (let i = 0; i < delay.length; i++) {
       axios
         .post(
-          `https://myplanit.link/todos/plan/advance/${delay[i]}`,
+          `/todos/plan/advance/${delay[i]}`,
           {},
           {
             headers: {
@@ -72,7 +72,7 @@ function EditFooter({
     for (let i = 0; i < delay.length; i++) {
       axios
         .post(
-          `https://myplanit.link/todos/my/${delay[i]}/advance`,
+          `/todos/my/${delay[i]}/advance`,
           {},
           {
             headers: {
@@ -89,7 +89,7 @@ function EditFooter({
   const deleteTodo = () => {
     for (let i = 0; i < delay.length; i++) {
       axios
-        .delete(`https://myplanit.link/todos/my/${delay[i]}/delete`, {
+        .delete(`/todos/my/${delay[i]}/delete`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${accessToken}`,

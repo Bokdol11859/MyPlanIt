@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import styled from "styled-components";
 import LoadingScreen from "../globalcomponents/Loading.components";
 
@@ -23,7 +23,7 @@ function PlanMarketDetail() {
   const fetchPlan = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://myplanit.link/plans/" + id, {
+      const response = await axios.get("/plans/" + id, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -52,7 +52,7 @@ function PlanMarketDetail() {
     axios
       .all([
         axios.post(
-          `https://myplanit.link/plans/${id}/buy`,
+          `/plans/${id}/buy`,
           {},
           {
             headers: {
@@ -62,7 +62,7 @@ function PlanMarketDetail() {
           }
         ),
         axios.post(
-          `https://myplanit.link/myplans/${id}/register`,
+          `/myplans/${id}/register`,
           {},
           {
             headers: {

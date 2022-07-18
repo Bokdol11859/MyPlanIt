@@ -12,7 +12,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import axios from "axios";
+import axios from "store/axios";
+
 function WishTemplate() {
   let navigate = useNavigate();
   let { plan_id } = useParams();
@@ -25,7 +26,7 @@ function WishTemplate() {
       setError(null);
       setUsers(null);
       setLoading(true);
-      const response = await axios.get("https://myplanit.link/plans");
+      const response = await axios.get("/plans");
       setUsers(response.data);
 
       setLoading(false);

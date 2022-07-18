@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from "store/axios";
 import LoadingScreen from "../globalcomponents/Loading.components";
 
 function KakaoSocial() {
@@ -9,7 +9,7 @@ function KakaoSocial() {
     const code = window.location.href.split("=")[1];
     // console.log(code);
     axios
-      .get(`https://myplanit.link/auth/kakao?code=${code}`)
+      .get(`/auth/kakao?code=${code}`)
       .then((response) => {
         const data = response.data;
         const status = response.status;

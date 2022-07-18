@@ -3,7 +3,7 @@ import * as Styled from "./settings.style";
 import { useNavigate } from "react-router-dom";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import LoadingScreen from "../globalcomponents/Loading.components";
 import NoticeDetail from "./noticeDetail.components";
 
@@ -22,7 +22,7 @@ export default function Notice() {
       try {
         setTitle("Notice");
         await axios
-          .get("https://myplanit.link/notice", {
+          .get("/notice", {
             withCredentials: true,
             headers: {
               "Content-Type": "application/json",

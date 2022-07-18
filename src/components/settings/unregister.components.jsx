@@ -4,7 +4,7 @@ import * as Styled from "./settings.style";
 import { useNavigate } from "react-router-dom";
 import Sheet from "react-modal-sheet";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
-import axios from "axios";
+import axios from "store/axios";
 export default function Unregister() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -12,7 +12,7 @@ export default function Unregister() {
   const refresh = localStorage.getItem("refresh");
   const Unregister = async () => {
     await axios
-      .delete("https://myplanit.link/unregister", {
+      .delete("/unregister", {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",

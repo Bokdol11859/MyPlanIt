@@ -4,7 +4,7 @@ import { Button } from "antd";
 import styled from "styled-components";
 import WeekCalendar from "./WeekCalendar.components";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "store/axios";
 
 function TodoHeader({
   selectedDate,
@@ -23,7 +23,7 @@ function TodoHeader({
 
   const fetchDays = () => {
     axios
-      .get("https://myplanit.link/todos/allofdate", {
+      .get("/todos/allofdate", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

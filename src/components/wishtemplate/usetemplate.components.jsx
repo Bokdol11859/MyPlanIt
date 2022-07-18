@@ -4,7 +4,7 @@ import { AppBar, Tabs, Tab } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import React, { useState, useEffect, Component } from "react";
-import axios from "axios";
+import axios from "store/axios";
 import { v4 as uuidv4 } from "uuid";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Loading } from "@nextui-org/react";
@@ -35,7 +35,7 @@ function UseTemplate() {
         setUsers(null);
         setLoading(true);
         const response = await axios.get(
-          "https://myplanit.link/myplans/registered",
+          "/myplans/registered",
           {
             withCredentials: true,
             headers: {
@@ -393,7 +393,7 @@ function UseTemplate() {
                 onClick={() => {
                   axios
                     .post(
-                      `https://myplanit.link/myplans/${planId}/delete`,
+                      `/myplans/${planId}/delete`,
                       {
                         plan_id: planId,
                       },

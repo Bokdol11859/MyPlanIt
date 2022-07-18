@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import BottomNavBar from "../globalcomponents/BottomNavBar.components";
-import axios from "axios";
+import axios from "store/axios";
 import { format } from "date-fns";
 import TodoHeader from "./TodoHeader.components";
 import TodoPlan from "./TodoPlan.components";
@@ -36,7 +36,7 @@ function Todo() {
     setTitle("Plan Todo");
     await axios
       .get(
-        `https://myplanit.link/todos/plan/${format(
+        `/todos/plan/${format(
           selectedDate,
           "yyyy-MM-dd"
         )}`,
@@ -61,7 +61,7 @@ function Todo() {
     setTitle("My Todo");
     await axios
       .get(
-        `https://myplanit.link/todos/my/${format(selectedDate, "yyyy-MM-dd")}`,
+        `/todos/my/${format(selectedDate, "yyyy-MM-dd")}`,
         {
           headers: {
             "Content-Type": "application/json",
