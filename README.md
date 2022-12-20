@@ -30,7 +30,7 @@
 
 ## 상세 페이지
   
-모든 페이지들은 [https:/myplanit.site](https:/myplanit.site) 에서 방문 가능합니다. 
+모든 페이지들은 [https://myplanit.site](https://myplanit.site) 에서 방문 가능합니다. 
   
 백엔드 서버를 닫은 관계로 직접적인 데이터 추가는 불가능한 점 양해 부탁드립니다. 
 
