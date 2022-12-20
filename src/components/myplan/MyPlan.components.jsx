@@ -10,7 +10,7 @@ function MyPlan() {
   const [current, setCurrent] = useState("BUY");
   const [buyPlans, setBuyPlans] = useState([]);
   const [registerPlans, setRegisterPlans] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [buyLength, setBuyLength] = useState(0);
   const [registerLength, setRegisterLength] = useState(0);
@@ -19,55 +19,55 @@ function MyPlan() {
 
   useEffect(() => {
     document.title = title;
-    const fetchRegisterPlans = async () => {
-      try {
-        setTitle("My Plan");
-        const response = await axios.get(
-          "/myplans/registered",
-          {
-            withCredentials: true,
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        console.log(response);
-        setRegisterPlans(
-          response.data.register_plans ? response.data.register_plans : []
-        );
-        setRegisterLength(
-          response.data.register_plans ? response.data.register_plans.length : 0
-        );
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+    // const fetchRegisterPlans = async () => {
+    //   try {
+    //     setTitle("My Plan");
+    //     const response = await axios.get(
+    //       "/myplans/registered",
+    //       {
+    //         withCredentials: true,
+    //         headers: {
+    //           "Content-Type": "application/json",
+    //           Authorization: `Bearer ${accessToken}`,
+    //         },
+    //       }
+    //     );
+    //     console.log(response);
+    //     setRegisterPlans(
+    //       response.data.register_plans ? response.data.register_plans : []
+    //     );
+    //     setRegisterLength(
+    //       response.data.register_plans ? response.data.register_plans.length : 0
+    //     );
+    //   } catch (e) {
+    //     setError(e);
+    //   }
+    //   setLoading(false);
+    // };
 
-    fetchRegisterPlans();
+    // fetchRegisterPlans();
 
-    const fetchBuyPlans = async () => {
-      try {
-        const response = await axios.get("/myplans/buy", {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        // console.log(response);
-        setBuyPlans(response.data.buy_plans ? response.data.buy_plans : []);
-        setBuyLength(
-          response.data.buy_plans ? response.data.buy_plans.length : 0
-        );
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+    // const fetchBuyPlans = async () => {
+    //   try {
+    //     const response = await axios.get("/myplans/buy", {
+    //       withCredentials: true,
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${accessToken}`,
+    //       },
+    //     });
+    //     // console.log(response);
+    //     setBuyPlans(response.data.buy_plans ? response.data.buy_plans : []);
+    //     setBuyLength(
+    //       response.data.buy_plans ? response.data.buy_plans.length : 0
+    //     );
+    //   } catch (e) {
+    //     setError(e);
+    //   }
+    //   setLoading(false);
+    // };
 
-    fetchBuyPlans();
+    // fetchBuyPlans();
   }, [update, title]);
 
   if (error) return error;

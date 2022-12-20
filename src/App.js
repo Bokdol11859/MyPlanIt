@@ -28,6 +28,7 @@ import Notice from "./components/settings/notice.components";
 import Unregister from "./components/settings/unregister.components";
 import NoticeDetail from "./components/settings/noticeDetail.components";
 import Agreement from "./components/login/Agreement.components";
+import Test from "components/admin/test.components";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/" element={<RootPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/test" element={<Test />} />
         <Route path="/login/kakao/:code" element={<KakaoSocial />} />
         <Route path="/auth/google/callback" element={<GoogleSocial />} />
 

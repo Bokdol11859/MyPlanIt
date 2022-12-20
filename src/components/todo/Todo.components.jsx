@@ -26,7 +26,7 @@ function Todo() {
   const [current, setCurrent] = useState("PLAN");
   const [planData, setPlanData] = useState();
   const [myTodoData, setMyTodoData] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [edit, setEdit] = useState(false);
   const [delay, setDelay] = useState([]);
@@ -35,18 +35,12 @@ function Todo() {
   const fetchPlan = async () => {
     setTitle("Plan Todo");
     await axios
-      .get(
-        `/todos/plan/${format(
-          selectedDate,
-          "yyyy-MM-dd"
-        )}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      )
+      .get(`/todos/plan/${format(selectedDate, "yyyy-MM-dd")}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
       .then((response) => {
         setPlanData(Object.entries(response.data));
         setLoading(false);
@@ -60,15 +54,12 @@ function Todo() {
   const fetchMyTodo = async () => {
     setTitle("My Todo");
     await axios
-      .get(
-        `/todos/my/${format(selectedDate, "yyyy-MM-dd")}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      )
+      .get(`/todos/my/${format(selectedDate, "yyyy-MM-dd")}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
       .then((response) => {
         setMyTodoData(response.data.personal_todos);
         setLoading(false);
@@ -82,15 +73,15 @@ function Todo() {
   useEffect(() => {
     document.title = title;
 
-    if (current === "PLAN") {
-      fetchPlan();
-      setEdit(false);
-      setDelay([]);
-    } else if (current === "MY") {
-      fetchMyTodo();
-      setEdit(false);
-      setDelay([]);
-    }
+    // if (current === "PLAN") {
+    //   fetchPlan();
+    //   setEdit(false);
+    //   setDelay([]);
+    // } else if (current === "MY") {
+    //   fetchMyTodo();
+    //   setEdit(false);
+    //   setDelay([]);
+    // }
   }, [current, selectedDate, update, title, updateMy]);
 
   if (error) return <ErrorHandle error={error} />;

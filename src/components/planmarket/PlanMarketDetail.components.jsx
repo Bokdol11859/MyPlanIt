@@ -25,7 +25,7 @@ function PlanMarketDetail() {
   };
 
   useEffect(() => {
-    fetchPlan();
+    // fetchPlan();
   }, []);
 
   const handleClickOpen = () => {
@@ -120,7 +120,6 @@ const Text = styled.div`
   font-size: ${(props) => props.size};
   margin-bottom: ${(props) => props.margin};
 `;
-
 
 const MainImage = styled.img`
   width: 375px;

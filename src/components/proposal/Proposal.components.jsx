@@ -22,29 +22,29 @@ function Proposal() {
 
   useEffect(() => {
     document.title = title;
-    const fetchData = async () => {
-      try {
-        setTitle("Proposal");
-        setError(null);
-        setPlans(null);
-        setLoading(true);
-        const response = await axios.get("/proposal", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        console.log(response);
-        if (response.data.message != "아직 요청사항이 없습니다.") {
-          setPlans(response.data);
-        }
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+    // const fetchData = async () => {
+    //   try {
+    //     setTitle("Proposal");
+    //     setError(null);
+    //     setPlans(null);
+    //     setLoading(true);
+    //     const response = await axios.get("/proposal", {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${accessToken}`,
+    //       },
+    //     });
+    //     console.log(response);
+    //     if (response.data.message != "아직 요청사항이 없습니다.") {
+    //       setPlans(response.data);
+    //     }
+    //   } catch (e) {
+    //     setError(e);
+    //   }
+    //   setLoading(false);
+    // };
 
-    fetchData();
+    // fetchData();
   }, [update]);
 
   function SendPlan() {

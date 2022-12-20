@@ -6,27 +6,27 @@ import PlanMarketContent from "./PlanMarketContent.components";
 import LoadingScreen from "../globalcomponents/Loading.components";
 
 function PlanMarket() {
-  const [plans, setPlans] = useState(null);
+  const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [title, setTitle] = useState("MyPlanIt");
 
   useEffect(() => {
     document.title = title;
-    const fetchPlans = async () => {
-      try {
-        setTitle("Plan Market");
-        setLoading(true);
-        const response = await axios.get("/plans");
-        const data = response.data;
-        setPlans([...data.Routine, ...data.Growth]);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+    // const fetchPlans = async () => {
+    //   try {
+    //     setTitle("Plan Market");
+    //     setLoading(true);
+    //     const response = await axios.get("/plans");
+    //     const data = response.data;
+    //     setPlans([...data.Routine, ...data.Growth]);
+    //   } catch (e) {
+    //     setError(e);
+    //   }
+    //   setLoading(false);
+    // };
 
-    fetchPlans();
+    // fetchPlans();
   }, [title]);
 
   if (loading)
