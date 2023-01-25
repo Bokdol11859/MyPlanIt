@@ -1,9 +1,11 @@
 
 <p align="center" >
-<a href="#" align="center"> <img src="https://velog.velcdn.com/images/bokdol11859/post/0d48ea7c-9d67-4f39-b745-f5370a05698e/image.png" width="100%" height="100%" align="center"/></a>
+<a href="https://my-plan-it-client.vercel.app/" align="center"> <img src="https://velog.velcdn.com/images/bokdol11859/post/0d48ea7c-9d67-4f39-b745-f5370a05698e/image.png" width="100%" height="100%" align="center"/></a>
 </p>
 <h1 align="center">
-  마이플랜잇 <br/>  <br/> 
+   
+ [마이플랜잇](https://my-plan-it-client.vercel.app/)
+  <br/>  <br/> 
   <div style="display: flex; gap: 10px; align-items: center; justify-content: center">
     <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" width="10%" height="100%" align="center"/>
     <img src="https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white" width="10%" height="100%" align="center"/>
